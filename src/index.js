@@ -13,10 +13,11 @@ async function main()
         const company = companies[companyName];
         const prefix = company.color.bold(`> ${company.name.padEnd(18)}`);
         let fetchingResult = chalk.red('unknown');
+        process.stdout.write(prefix);
         await fetchCompany(company.url)
             .then(result => fetchingResult = formatCompany(result, company))
             .catch(error => fetchingResult = chalk.red(error));
-        console.log(`${prefix} ${fetchingResult}`);
+        process.stdout.write(fetchingResult);
     }
 }
 
