@@ -14,7 +14,7 @@ async function main()
         const prefix = company.color.bold(`> ${company.name.padEnd(18)}`);
         let fetchingResult = chalk.red('unknown');
         await fetchCompany(company.url)
-            .then(result => fetchingResult = formatCompany(result))
+            .then(result => fetchingResult = formatCompany(result, company))
             .catch(error => fetchingResult = chalk.red(error));
         console.log(`${prefix} ${fetchingResult}`);
     }
@@ -24,7 +24,7 @@ main();
 
 function fetchCompany(url)
 {
-    return new Promise((resolve,reject) =>
+    return new Promise((resolve, reject) =>
     {
         fetch(url, { headers: { cookie: 'rat=' + getToken() }})
             .then(res => res.json()) 
@@ -33,7 +33,7 @@ function fetchCompany(url)
     });
 }
 
-function formatCompany(object)
+function formatCompany(object, company)
 {
     if(object.error)
     {
@@ -41,7 +41,24 @@ function formatCompany(object)
     }
     else
     {
-        return object.user.score;
+        let tier = company.tiers.reverse()[object.user.band];
+        switch(object.user.band)
+        {
+            default:
+            case 0:
+                tier = chalk.green(tier + " [1]");
+                break;
+            case 1:
+                tier = chalk.yellow(tier+ " [2]");
+                break;
+            case 2:
+                tier = chalk.white(tier+ " [3]");
+                break;
+            case 3:
+                tier = chalk.white(tier+ " [4]");
+                break;
+        }
+        return tier;
     }
 }
 
