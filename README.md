@@ -25,17 +25,17 @@ Install Dependencies:
 npm install
 ```
 
-And on the end setup authentation token:
+And on the end setup authentication token:
 
 ## 🦜 `rat` token
 
-Unfortunetly, Sea Of Thieves don't provide any official API at this points so this project uses slighty hacky way of authentaching user.
+Unfortunately, Sea Of Thieves doesn't provide any official API at this points so this project uses a slightly hacky way of authenticating a user.
 
-When you login to Microsoft account at [Sea Of Thieves Website](https://www.seaofthieves.com) a `rat` cookie is saved to your browser so you don't have to use retype your login credintials every visit.
+When you log in to Microsoft account at [Sea Of Thieves Website](https://www.seaofthieves.com) a `rat` cookie is saved to your browser so you don't have to use retype your login credentials every visit.
 
-**❗ And there is a catch 🎣** `rat` token is used to **acces your account** so you shoud **never** provide your token to any unthrusted source. SotLedger is open source and runs on your local machine and it's code is mantained as clean as possibly but, still you shouldn't thrust random text file on the internet. That is **strongly** adwised to review project code before providing your token.
+**❗ And there is a catch 🎣** `rat` token is used to **access your account** so you should **never** provide your token to any untrusted source. SotLedger is open source and runs on your local machine and its code is maintained as clean as possible but, still, you shouldn't trust random text file on the internet. That is **strongly** advised to review project code before providing your token.
 
-To retrive your token you can use [EditThisCookie](http://www.editthiscookie.com) extension. To provide it to program, create `token.txt` file and paste token intro it.
+To retrieve your token you can use [EditThisCookie](http://www.editthiscookie.com) extension. To provide it to program, create `token.txt` file and paste token introit.
 
 ## ☠️ Usage
 ```sh
