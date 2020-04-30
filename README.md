@@ -1,6 +1,6 @@
 # SotLedger 🏴‍☠️
  
- [![GitHub commit activity](https://img.shields.io/github/commit-activity/m/MrBartusek/ReplacementBot?color=black&logo=github)](https://github.com/MrBartusek/ReplacementBot/pulse/monthly)
+ [![GitHub commit activity](https://img.shields.io/github/commit-activity/m/MrBartusek/SotLedger?color=black&logo=github)](https://github.com/MrBartusek/SotLedger/pulse/monthly)
 
 [Ships of Fortune](https://seaofthieves.gamepedia.com/Ships_of_Fortune) monthly update for [Sea Of Thieves](https://www.seaofthieves.com) game made by [Rare](https://www.rare.co.uk) and [Xbox Games Studio](www.xbox.com/xbox-game-studios) introduced [Emissaries](https://seaofthieves.gamepedia.com/Trading_Company_Emissaries). Most active players became Ledgers and compete for the unique prizes in the leaderboard.
 
@@ -15,8 +15,8 @@ Install Required Software:
 
 Clone The Repository:
 ```sh
-git clone https://github.com/MrBartusek/ReplacementBot.git
-cd ReplacementBot
+git clone https://github.com/MrBartusek/SotLedger.git
+cd SotLedger
 ```
 Install Dependencies:
 
