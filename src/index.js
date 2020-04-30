@@ -33,16 +33,16 @@ function fetchCompany(url)
     });
 }
 
-function formatCompany(object, company)
+function formatCompany(result, company)
 {
-    if(object.error)
+    if(result.error)
     {
         return chalk.red('Server returned error')
     }
     else
     {
-        let tier = company.tiers.reverse()[object.user.band];
-        switch(object.user.band)
+        let tier = company.tiers.reverse()[result.user.band];
+        switch(result.user.band)
         {
             default:
             case 0:
@@ -58,7 +58,7 @@ function formatCompany(object, company)
                 tier = chalk.white(tier+ " [4]");
                 break;
         }
-        return tier;
+        return `${tier}`
     }
 }
 
