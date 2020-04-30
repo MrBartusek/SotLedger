@@ -2,7 +2,7 @@
   "name": "sotledger",
   "version": "1.0.0",
   "description": "A simple script to show Sea of Thieves Leaderboards right in your terminal!",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/MrBartusek/SotLedger/issues"
   },
-  "homepage": "https://github.com/MrBartusek/SotLedger#readme"
+  "homepage": "https://github.com/MrBartusek/SotLedger#readme",
+  "dependencies": {
+    "chalk": "^4.0.0",
+    "node-emoji": "^1.10.0",
+    "node-fetch": "^2.6.0"
+  }
 }
