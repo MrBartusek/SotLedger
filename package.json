@@ -18,7 +18,6 @@
   "homepage": "https://github.com/MrBartusek/SotLedger#readme",
   "dependencies": {
     "chalk": "^4.0.0",
-    "node-emoji": "^1.10.0",
     "node-fetch": "^2.6.0"
   }
 }
