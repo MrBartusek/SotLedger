@@ -33,32 +33,37 @@ function fetchCompany(url)
     });
 }
 
-function formatCompany(result, company)
+function formatCompany(response, company)
 {
-    if(result.error)
+    if(response.error)
     {
         return chalk.red('Server returned error')
     }
     else
     {
-        let tier = company.tiers.reverse()[result.user.band];
-        switch(result.user.band)
+        let tier = company.tiers.reverse()[response.user.band];
+        switch(response.user.band)
         {
             default:
             case 0:
                 tier = chalk.green(tier + " [1]");
                 break;
             case 1:
-                tier = chalk.yellow(tier+ " [2]");
+                tier = chalk.red(tier + " [2]");
                 break;
             case 2:
-                tier = chalk.white(tier+ " [3]");
+                tier = chalk.red(tier + " [3]");
                 break;
             case 3:
-                tier = chalk.white(tier+ " [4]");
+                tier = chalk.red(tier + " [4]");
                 break;
         }
-        return `${tier}`
+        const rankNotice = response.user.toNextRank == 0 ?  chalk.gray('Max Emissary Rank') : `Next Rank: ${company.color(response.user.toNextRank)}`
+        const leaderboardRank = 'Global Position: ' + company.color('#' + response.user.rank + 1);
+        return `${tier}\r\n` +
+        `  ${leaderboardRank}\r\n` +
+        `  ${rankNotice}\r\n`
+        
     }
 }
 
