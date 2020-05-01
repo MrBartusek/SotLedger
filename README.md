@@ -6,7 +6,9 @@
 
 The purpose of the project is to make checking your current positions very easily inside the terminal. Of course, you can use official sources like [Leaderboard Page](https://www.seaofthieves.com/leaderboards) or check it in-game, however, this is a much more readable way.
 
-![Presentation Image](https://i.imgur.com/xfBHJIO.png)
+![Presentation Image](https://i.imgur.com/FCmyTn6.png)
+
+---
 
 ## ⚓ Installation
 Install Required Software:
@@ -39,7 +41,7 @@ To retrieve your token you can use [EditThisCookie](http://www.editthiscookie.co
 
 ## ☠️ Usage
 ```sh
-node .
+node start
 ```
 
 ---
