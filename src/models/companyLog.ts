@@ -17,28 +17,74 @@ export default class CompanyLog
 
     public getContent(): string
     {
-        return this.ledger.color(`> ${this.ledger.name}`) + '\r\n' +
-            `  Position: ${this.safePosition()}`
+        const companyStatus = this.positionStatus() == 'SAFE' ? chalk.green('[Safe]') : chalk.yellow('[Warn]')
+        const prefix = `${this.ledger.color.bold(`> ${this.ledger.name}`)}`;
+        return `${prefix} ${companyStatus}` + '\r\n' +
+        `  Position: ${this.positionsList()}` + '\r\n' +
+        `  Position Status : ${this.safePositionToString(this.positionStatus())}`
     }
 
-    safePosition(): string
+    private positionsList(): string
+    {
+        let result = '';
+        for (let i = 0; i < this.ledger.tiers.length; i++) {
+            const element = this.ledger.tiers[i];
+            if(i == this.ledger.userBand.index)
+            {
+                result += this.ledger.color(element)
+            }
+            else if(i < this.ledger.userBand.index)
+            {
+                result += chalk.gray.underline(element);
+            }
+            else
+            {
+                result += chalk.gray(element);
+            }
+            result += ' ';
+        }
+        return result;
+    }
+
+    private positionStatus(): 'SAFE' | 'LOW_RANK' | 'POSSIBLE_DEMOTE' | 'CLOSE_DEMOTE'
     {
         const isMaxPosition = this.ledger.userBand.index === 0;
         if(isMaxPosition && this.ledger.pointsToDemote <= 50000)
         {
-            return chalk.yellow(`Possible demote from: ${this.ledger.userBand.positionName} | ${this.ledger.pointsToDemote} points remaining`)
+            return 'POSSIBLE_DEMOTE'
         }
         else if(isMaxPosition && this.ledger.pointsToDemote <= 10000)
         {
-            return chalk.red(`Close to demote from: ${this.ledger.userBand.positionName}] | ${this.ledger.pointsToDemote} points remaining`)
+            return 'CLOSE_DEMOTE'
         }
         else if(isMaxPosition)
         {
-            return chalk.green(`Safe ${this.ledger.userBand.positionName} Position`)
+            return 'SAFE'
         }
         else
         {
-            return chalk.red(`Low rank: ${this.ledger.userBand.positionName} | Next rank in: ${this.ledger.pointsToPromote}`);
+            return 'LOW_RANK'
+        }
+    }
+
+    private safePositionToString(state: 'SAFE' | 'LOW_RANK' | 'POSSIBLE_DEMOTE' | 'CLOSE_DEMOTE'): string
+    {
+        const isMaxPosition = this.ledger.userBand.index === 0;
+        if(state == "POSSIBLE_DEMOTE")
+        {
+            return chalk.yellow(`Possible demote, ${this.ledger.pointsToDemote}$ remaining`)
+        }
+        else if(state == 'CLOSE_DEMOTE')
+        {
+            return chalk.red(`Close to demote, ${this.ledger.pointsToDemote}$ remaining`)
+        }
+        else if(state == 'SAFE')
+        {
+            return chalk.green(`Safe Max Position`)
+        }
+        else
+        {
+            return chalk.red(`Low rank, Next rank in: ${this.ledger.pointsToPromote}$`);
         }
     }
 }

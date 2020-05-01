@@ -14,6 +14,7 @@ export default class Requester
                     resolve(new CompanyLedger(
                         company.name,
                         company.color,
+                        company.tiers,
                         result.user.rank,
                         new CompanyBand(
                             userBand.Index,

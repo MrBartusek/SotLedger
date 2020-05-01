@@ -13,13 +13,13 @@ export default class SotLedger
         console.log(chalk.bold('SotLedger: '))
         for await (const company of companies)
         {
-            process.stdout.write(CompanyLog.gerPrefix(company))
+            process.stdout.write('\r\n' + CompanyLog.gerPrefix(company))
 
             await new Requester().requestCompany(company, this.getToken())
                 .then((ledger: CompanyLedger) =>
                 {
                     process.stdout.cursorTo(0);
-                    process.stdout.write(chalk.red(`${new CompanyLog(ledger).getContent()}\r\n\r\n`));
+                    process.stdout.write(`${new CompanyLog(ledger).getContent()}\r\n`);
                 })
                 .catch(error =>
                 {

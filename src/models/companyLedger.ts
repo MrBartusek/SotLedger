@@ -11,6 +11,7 @@ export class CompanyLedger
     constructor(
         public name: string,
         public color: chalk.Chalk,
+        public tiers: string[],
         public userGlobalRank: number,
         public userBand: CompanyBand,
         public pointsToPromote: number,
