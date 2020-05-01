@@ -19,7 +19,11 @@
   },
   "homepage": "https://github.com/MrBartusek/SotLedger#readme",
   "dependencies": {
+    "@types/node-fetch": "^2.5.7",
     "chalk": "^4.0.0",
     "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^13.13.4"
   }
 }
