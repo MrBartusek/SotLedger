@@ -6,7 +6,7 @@
 
 The purpose of the project is to make checking your current positions very easily inside the terminal. Of course, you can use official sources like [Leaderboard Page](https://www.seaofthieves.com/leaderboards) or check it in-game, however, this is a much more readable way.
 
-![Presentation Image](https://i.imgur.com/FCmyTn6.png)
+<img src="https://i.imgur.com/FCmyTn6.png" alt="Presentation Image" width="70%"/>
 
 ---
 
@@ -40,6 +40,7 @@ When you log in to Microsoft account at [Sea Of Thieves Website](https://www.sea
 To retrieve your token you can use [EditThisCookie](http://www.editthiscookie.com) extension. To provide it to program, create `token.txt` file and paste token introit.
 
 ## ☠️ Usage
+When you are inside project directory you can type:
 ```sh
 node start
 ```
