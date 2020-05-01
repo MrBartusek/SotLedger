@@ -6,7 +6,7 @@
 
 The purpose of the project is to make checking your current positions very easily inside the terminal. Of course, you can use official sources like [Leaderboard Page](https://www.seaofthieves.com/leaderboards) or check it in-game, however, this is a much more readable way.
 
-![Presentation Image](https://i.imgur.com/TdyHjFw.png)
+![Presentation Image](https://i.imgur.com/xfBHJIO.png)
 
 ## ⚓ Installation
 Install Required Software:
