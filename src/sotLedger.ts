@@ -29,7 +29,14 @@ export default class SotLedger
     }
     private getToken()
     {
-        return fs.readFileSync('token.txt').toString();
+        if(fs.existsSync('token.txt'))
+        {
+            return fs.readFileSync('token.txt').toString();
+        }
+        else
+        {
+            throw new Error('token.txt file not found');
+        }
     }
 }
 
