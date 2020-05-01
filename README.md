@@ -18,10 +18,11 @@ Clone The Repository:
 git clone https://github.com/MrBartusek/SotLedger.git
 cd SotLedger
 ```
-Install Dependencies:
+Install Dependencies and build:
 
 ```sh
 npm install
+npm run build
 ```
 
 And on the end setup authentication token:
