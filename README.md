@@ -11,7 +11,7 @@ The purpose of the project is to make checking your current positions very easil
 
 
 ## ⚓ Installation
-You can setup the script in 4 easy steps:
+You can set up the script in 4 easy steps:
 
 __1__ Install Required Software:
 - [GIT](https://git-scm.com) (GUI such [GitHub Desktop](https://desktop.github.com) can be helpful)
@@ -29,10 +29,10 @@ npm install
 npm run build
 ```
 
-__4__ Setup `token.txt` file with `rat` token [How to Setup `rat` token](#-🦜-How-SotLedger-fetches-data-and-how-to-get-`rat`-token)
+__4__ Setup `token.txt` file with `rat` token [How to Setup `rat` token](#-how-sotledger-fetches-data-and-how-to-get-rat-token)
 
 ## ☠️ Usage
-When you are inside project directory you can type:
+When you are inside the project directory you can type:
 ```sh
 node start
 ```
@@ -43,7 +43,7 @@ Unfortunately, Sea Of Thieves doesn't provide any official API at this points so
 
 **❗ And there is a catch 🎣❗** `rat` token is used to **access your account** so you should **never** provide your token to any untrusted source. SotLedger is open source and runs on your local machine and its code is maintained as clean as possible but, still, you shouldn't trust random text file on the internet. That is **strongly** advised to review project code before providing your token. 
 
-To retrieve your token you can use [EditThisCookie](http://www.editthiscookie.com) browser extension to copy `rat` cookie from [LeaderBoard Page](https://www.seaofthieves.com/leaderboards). Then create `token.txt` file in main project directory and paste `rat` token intro it.
+To retrieve your token you can use [EditThisCookie](http://www.editthiscookie.com) browser extension to copy `rat` cookie from [LeaderBoard Page](https://www.seaofthieves.com/leaderboards). Then create `token.txt` file in the main project directory and paste `rat` token intro it.
 
 <details>
 <summary>Expandable Image</summary>
