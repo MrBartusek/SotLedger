@@ -81,7 +81,7 @@ export default class CompanyLog
         }
         else if(state == 'SAFE')
         {
-            return chalk.green(`Safe Max Position`)
+            return chalk.green(`Safe Max Position (${this.formatNumber(this.ledger.pointsToDemote)}$ above)`)
         }
         else
         {
