@@ -43,7 +43,7 @@ Unfortunately, Sea Of Thieves doesn't provide any official API at this points so
 
 **❗ And there is a catch 🎣❗** `rat` token is used to **access your account** so you should **never** provide your token to any untrusted source. SotLedger is open source and runs on your local machine and its code is maintained as clean as possible but, still, you shouldn't trust random text file on the internet. That is **strongly** advised to review project code before providing your token. 
 
-To retrieve your token you can use [EditThisCookie](http://www.editthiscookie.com) browser extension to copy `rat` cookie from [LeaderBoard Page](https://www.seaofthieves.com/leaderboards). Then create `token.txt` file in the main project directory and paste `rat` token intro it.
+To retrieve your token you can use [EditThisCookie](http://www.editthiscookie.com) browser extension to copy `rat` cookie from [LeaderBoard Page](https://www.seaofthieves.com/leaderboards). Then create `token.txt` file in the main project directory and paste `rat` token intro it. Expand image below for more info!
 
 <details>
 <summary>Expandable Image</summary>
