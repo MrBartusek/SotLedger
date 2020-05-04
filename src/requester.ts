@@ -25,10 +25,11 @@ export default class Requester
                                 userBand.TitleEntitlement.Owned,
                             ),
                             // Item Prize
-                            new BandPrize( 
-                                userBand.Entitlements.Id,
-                                userBand.Entitlements.Owned,
-                            ),
+                            userBand.Entitlements ?
+                                new BandPrize( 
+                                    userBand.Entitlements.Id,
+                                    userBand.Entitlements.Owned,
+                                ) : undefined,
                             // Best User
                             new BandUser(
                                 userBand.Results[0].GamerTag,
