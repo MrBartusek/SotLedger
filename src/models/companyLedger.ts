@@ -13,9 +13,12 @@ export class CompanyLedger
         public color: chalk.Chalk,
         public tiers: string[],
         public userGlobalRank: number,
+        public userBandId: Number,
         public userBand: CompanyBand,
+        public userTag: string,
         public pointsToPromote: number,
         public pointsToDemote: number,
+        public bands: CompanyBand[],
     ){};
 }
 
@@ -24,10 +27,11 @@ export class CompanyBand
     constructor(
         public index: number,
         public positionName: string,
-        public titlePrize: BandPrize,
-        public itemPrize: BandPrize,
+        public containsRequestingUser: boolean,
         public bestUser: BandUser,
         public worstUser: BandUser,
+        public titlePrize: BandPrize,
+        public itemPrize: BandPrize,
     ){};
 }
 

@@ -10,41 +10,19 @@ export default class Requester
             this.fetchCompany(company.url, ratToken)
                 .then((result: any) =>
                 {
-                    const userBand = result.Bands[result.user.band];
+                    const resultUserBand = result.Bands[result.user.band];
+                    const companyBands = this.convertBands(result.Bands, result.user.band, company.tiers)
                     resolve(new CompanyLedger(
                         company.name,
                         company.color,
-                        company.tiers,
+                        company.tiers.reverse(),
                         result.user.rank,
-                        new CompanyBand(
-                            userBand.Index,
-                            company.tiers.reverse()[result.user.band],
-                            // Title Prize
-                            new BandPrize(
-                                userBand.TitleEntitlement.Id,
-                                userBand.TitleEntitlement.Owned,
-                            ),
-                            // Item Prize
-                            userBand.Entitlements ?
-                                new BandPrize( 
-                                    userBand.Entitlements.Id,
-                                    userBand.Entitlements.Owned,
-                                ) : undefined,
-                            // Best User
-                            new BandUser(
-                                userBand.Results[0].GamerTag,
-                                userBand.Results[0].Score,
-                                userBand.Results[0].Rank,
-                            ),
-                            // Worst User
-                            new BandUser(
-                                userBand.Results[2].GamerTag,
-                                userBand.Results[2].Score,
-                                userBand.Results[2].Rank,
-                            )
-                        ),
+                        result.user.band,
+                        companyBands[result.user.band],
+                        result.Bands[result.user.band].Results[1],
                         result.user.toNextRank,
-                        userBand.Results[1].Score - userBand.Results[2].Score
+                        resultUserBand.Results[1].Score - resultUserBand.Results[2].Score,
+                        companyBands
                     ));
                 })
                 .catch(reject));
@@ -57,5 +35,47 @@ export default class Requester
                 .then(res => res.json()) 
                 .then(json => resolve(json))
                 .catch(error => reject(error)));
+    }
+
+    private convertBandUser(raw: any): BandUser
+    {
+        return new BandUser(
+            raw.GamerTag,
+            raw.Score,
+            raw.GlobalRank
+        )
+    }
+
+    private convertBandPrize(raw: any): BandPrize
+    {
+        if(!raw)
+        {
+            return null;
+        }
+        return new BandPrize(
+            raw.Id,
+            raw.Owned,
+        )
+    }
+
+    private convertBands(bands: any, userBandId: Number, companyTiers: string[]): CompanyBand[]
+    {
+        let result = [];
+        for(const band of bands)
+        {
+            const containsRequestingUser = band.Index === userBandId;
+            result.push(
+                new CompanyBand(
+                    band.Index,
+                    companyTiers.reverse()[band.Index],
+                    containsRequestingUser,
+                    this.convertBandUser(band.Results[0]),
+                    this.convertBandUser(band.Results[containsRequestingUser ? 2 : 1]),
+                    this.convertBandPrize(band.TitleEntitlement),
+                    this.convertBandPrize(band.Entitlements),
+                )
+            );
+        }
+        return result;
     }
 }
