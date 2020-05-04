@@ -34,7 +34,7 @@ __4__ Setup `token.txt` file with `rat` token [How to Setup `rat` token](#-how-s
 ## ☠️ Usage
 When you are inside the project directory you can type:
 ```sh
-node start
+npm start
 ```
 
 ## 🦜 How SotLedger fetches data and how to get `rat` token
