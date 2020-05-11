@@ -39,11 +39,18 @@ export default class Requester
 
     private convertBandUser(raw: any): BandUser
     {
-        return new BandUser(
-            raw.GamerTag,
-            raw.Score,
-            raw.GlobalRank
-        )
+        if(raw)
+        {
+            return new BandUser(
+                raw.GamerTag,
+                raw.Score,
+                raw.GlobalRank
+            );
+        }
+        else
+        {
+            return undefined;
+        }
     }
 
     private convertBandPrize(raw: any): BandPrize
