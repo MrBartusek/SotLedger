@@ -1,3 +1,6 @@
+# Currently broken, thanks Rare
+Requesting api endpoint started to throw 403, will investigate soon!
+
 # SotLedger 🏴‍☠️
  
  [![GitHub commit activity](https://img.shields.io/github/commit-activity/m/MrBartusek/SotLedger?color=black&logo=github)](https://github.com/MrBartusek/SotLedger/pulse/monthly)
