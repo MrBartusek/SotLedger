@@ -23,7 +23,7 @@ export default class SotLedger
                 })
                 .catch(error =>
                 {
-                    process.stdout.write(chalk.red(`Failed to load(${error.stack})\r\n\r\n`));
+                    process.stdout.write(chalk.red(`${error.stack}\r\n\r\n`));
                 });
         }
     }

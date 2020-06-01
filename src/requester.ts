@@ -31,7 +31,12 @@ export default class Requester
     private fetchCompany(url: string, ratToken: string)
     {
         return new Promise((resolve, reject) =>
-            fetch(url, { headers: { cookie: 'rat=' + ratToken }})
+            fetch(url, { headers: 
+                { 
+                    "Cookie": 'rat=' + ratToken,
+                    "Referer": "https://www.seaofthieves.com/leaderboards",
+                    "User-Agent": 'SotLedger'
+                }})
                 .then(res => res.json()) 
                 .then(json => resolve(json))
                 .catch(error => reject(error)));
