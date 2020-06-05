@@ -1,6 +1,6 @@
-# SotLedger has been archived ![OSS Lifecycle](https://img.shields.io/osslifecycle/MrBartusek/SotLedger)
+# SotLedger has been archived 📚 ![OSS Lifecycle](https://img.shields.io/osslifecycle/MrBartusek/SotLedger)
 
-I don't want to maintain the project anymore. Because it depends on not public API it will be constantly broken and must be contently fixed. There is no documentation to refer to and breaking changes are happing without warning. Also, prizes after season one remained the same so I don't get any benefits from maintaining it. Code remains on MIT license so if anyone would want to continue it, they can.
+I don't want to maintain the project anymore. Because it depends on not-public API, it will be constantly broken and must be constantly fixed. There is no documentation to refer to and breaking changes are happing without warning. Also, prizes after season one remained the same so I don't get any benefits from maintaining it. Code remains on MIT license so if anyone would want to continue it, they can.
 
 ***
 
